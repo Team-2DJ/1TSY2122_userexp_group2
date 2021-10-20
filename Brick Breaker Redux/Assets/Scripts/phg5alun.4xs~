@@ -58,9 +58,8 @@ public class BallScript : MonoBehaviour
         // if ball collides with an object with tag "brick", destroys the brick 
         if (other.transform.CompareTag("Brick"))
         {
-            // creates the breaking (explosion) particle effect
-            Transform newExplosion = Instantiate(explosion, other.transform.position, other.transform.rotation);
-            Destroy(newExplosion.gameObject, 2.5f);
+            // creates the brick breaking particle effect
+            Instantiate(explosion, other.transform.position, other.transform.rotation); 
 
             Destroy(other.gameObject);
         }
