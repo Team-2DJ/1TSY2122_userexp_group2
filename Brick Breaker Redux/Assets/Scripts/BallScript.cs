@@ -8,7 +8,8 @@ public class BallScript : MonoBehaviour
     public bool inPlay;
     public Transform paddle;
     public float speed;
-    public Transform explosion; 
+    public Transform explosion;
+    public GameManager gm;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +50,9 @@ public class BallScript : MonoBehaviour
 
             // Puts the ball back to the paddle
             inPlay = false;
+
+            // Decrease lives by 1
+            gm.updateLives(-1);
         }
     }
 
@@ -61,6 +65,9 @@ public class BallScript : MonoBehaviour
             // creates the breaking (explosion) particle effect
             Transform newExplosion = Instantiate(explosion, other.transform.position, other.transform.rotation);
             Destroy(newExplosion.gameObject, 2.5f);
+
+            // Gets the points value of the brick
+            gm.updateScore(other.gameObject.GetComponent<BrickScript>().points);
 
             Destroy(other.gameObject);
         }
