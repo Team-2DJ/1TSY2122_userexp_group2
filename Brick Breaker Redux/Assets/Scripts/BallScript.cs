@@ -21,6 +21,12 @@ public class BallScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //When gameover is true
+        if(gm.gameOver)
+        {
+            //When true it stops the update when it gameover so no more ball
+            return;
+        }
         // If the ball is off-screen and not in play,
         // put the ball back to the paddle
         if (!inPlay)
@@ -68,6 +74,9 @@ public class BallScript : MonoBehaviour
 
             // Gets the points value of the brick
             gm.updateScore(other.gameObject.GetComponent<BrickScript>().points);
+
+            // Removes a brick from the level count
+            gm.UpdateNumberofBricks();
 
             Destroy(other.gameObject);
         }

@@ -8,6 +8,9 @@ public class PaddleMovement : MonoBehaviour
     //Paddle Speed
     public float speed;
 
+    //Gamemanger
+    public GameManager gm;
+
     //Screen Edges
     public float rightScreenEdge;
     public float leftScreenEdge;
@@ -22,6 +25,14 @@ public class PaddleMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //When gameOver is true
+        if (gm.gameOver)
+        {
+            //When true it stops the update when it gameover so now there no paddle movement
+            return;
+        }
+
+
         //Paddle Movement
 
         //Contains the horizontal movement for the paddle
