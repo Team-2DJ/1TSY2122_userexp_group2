@@ -64,22 +64,8 @@ public class PaddleMovement : MonoBehaviour
 
     }
 
-
-    // used for the powerup system (David) 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // if the object is an extra life
-        if (collision.CompareTag("extraLife"))
-        {
-            // if trigger entered, add life
-            gm.updateLives(1);
-        }
-
-        // destroys the powerup once collided on 
-        Destroy(collision.gameObject);
-
-        /* in the future, once we add more powerups, I'll add a checker that sees if the object is a health powerup,
-        "gun" powerup, ball powerup, etc. That'll not be based from the video anymore rather, our own code (David) */
-
+        
     }
 }

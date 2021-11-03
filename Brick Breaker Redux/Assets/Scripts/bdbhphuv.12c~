@@ -9,10 +9,6 @@ public class BallScript : MonoBehaviour
     public Transform paddle;
     public float speed;
     public Transform explosion;
-
-    // temporarily only accepts one powerup (extra life), will be changed into an array come the time we will add more powerups (David)
-    public Transform powerup; 
-
     public GameManager gm;
 
     // Start is called before the first frame update
@@ -72,32 +68,12 @@ public class BallScript : MonoBehaviour
         // if ball collides with an object with tag "brick", destroys the brick 
         if (other.transform.CompareTag("Brick"))
         {
-            BrickScript brick = other.gameObject.GetComponent<BrickScript>();
-
-            // brick health, if brick health <= 0 then don't run this if statement
-            if (brick.hitsToBreak > 1)
-            {
-                brick.BreakBrick();
-                return; 
-            }
-
-            // random Number to check if powerup should be called
-            /* To Note: I might change this system if we're done with the video tutorial, might make it a brick thing wherein if 
-            this brick is broken, then drop powerup, but for now this system will do (David) */
-
-            int randomChance = Random.Range(1, 101);
-
-            if (randomChance < 50) // 50% chance of spawning
-            {
-                Instantiate(powerup, other.transform.position, other.transform.rotation);
-            }
-
             // creates the breaking (explosion) particle effect
             Transform newExplosion = Instantiate(explosion, other.transform.position, other.transform.rotation);
             Destroy(newExplosion.gameObject, 2.5f);
 
             // Gets the points value of the brick
-            gm.updateScore(brick.points);
+            gm.updateScore(other.gameObject.GetComponent<BrickScript>().points);
 
             // Removes a brick from the level count
             gm.UpdateNumberofBricks();
