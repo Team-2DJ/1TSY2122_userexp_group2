@@ -12,13 +12,22 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI scoreText;
 
+    
+
 
     //Gameover is start false
     public bool gameOver;
     //Holds the gameover panel
     public GameObject gameOverPanel;
+    //Holds the loading level panel
+    public GameObject loadLevelPanel;
     //Num of bricks
     public int numberOfBricks;
+
+    //List of levels
+    public Transform[] levels;
+    //Current Level
+    public int currentLevelIndex;
     
     // Start is called before the first frame update
     void Start()
@@ -70,12 +79,43 @@ public class GameManager : MonoBehaviour
         //When the number of bricks is <=0
         if(numberOfBricks <= 0)
         {
-            //For now just does gameover but will make it a load next level
-            GameOver();
+            //When index is equal or greater than to the last level
+            if (currentLevelIndex >= levels.Length - 1)
+            {
+                //For now just does gameover but will make it a load next level
+                GameOver();
+            } else {
+                //Makes loading level visible
+                loadLevelPanel.SetActive(true);
+                //Changes text name
+                loadLevelPanel.GetComponentInChildren<Text> ().text = "Level " + (currentLevelIndex + 2);
+
+                //Freezes or gives time, like a loading screen, so that it won't go to the next level instantly
+                gameOver = true;
+                //Invoke the function loadLevel and plays it after a set amount of time 
+                Invoke("LoadLevel", 3f);
+            }
+            
 
         }
     }
 
+    void LoadLevel()
+    {
+        //add to currentlevelindex
+        currentLevelIndex++;
+        //Instatnatiate the next level
+        Instantiate(levels[currentLevelIndex], Vector2.zero, Quaternion.identity);
+        //Looks at the number of bricks
+        numberOfBricks = GameObject.FindGameObjectsWithTag("Brick").Length;
+
+        //In the UpdateNumberofBricks() gameOver becomes true for a loading screen
+        //This removes the loading screen
+        gameOver = false;
+        //Makes loading level invisible
+        loadLevelPanel.SetActive(false);
+
+    }
 
     void GameOver()
     {
