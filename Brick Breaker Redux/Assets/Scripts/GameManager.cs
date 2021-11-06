@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
     public int score;
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI scoreText;
-
+    public TextMeshProUGUI highScoreText;
+    public TMP_InputField highScoreInput;
     
 
 
@@ -28,7 +29,7 @@ public class GameManager : MonoBehaviour
     public Transform[] levels;
     //Current Level
     public int currentLevelIndex;
-    
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +39,7 @@ public class GameManager : MonoBehaviour
         // Initializes score
         scoreText.text = "Score: " + score;
 
-        //Finds Gameobjects with the tag of brick and stores the total amount 
+        // Finds Gameobjects with the tag of brick and stores the total amount 
         numberOfBricks = GameObject.FindGameObjectsWithTag("Brick").Length;
     }
 
@@ -122,7 +123,33 @@ public class GameManager : MonoBehaviour
         //Will be from false to true
         gameOver = true;
         gameOverPanel.SetActive(true);
+
+        // Initializes the high score
+        int highScore = PlayerPrefs.GetInt("HIGHSCORE");
+
+        // Overwrites the score when high score is reached
+        if (score > highScore)
+        {
+            PlayerPrefs.SetInt("HIGHSCORE", score);
+            highScoreText.text = "New High Score!" + "\n" + "Enter Your Name Below.";
+            highScoreInput.gameObject.SetActive(true);
+        }
+        // Displays high score only (If player didn't reach the high score)
+        else
+        {
+            highScoreText.text = PlayerPrefs.GetString("HIGHSCORENAME") + "'s" + " High Score was " + highScore + "\n" + "Can you beat it?";
+        }
     }
+
+    // When player is done inputting the name
+    public void NewHighScore()
+    {
+        string highScoreName = highScoreInput.text;
+        PlayerPrefs.SetString("HIGHSCORENAME", highScoreName);
+        highScoreInput.gameObject.SetActive(false);
+        highScoreText.text = "Congratulations " + highScoreName + "\n" + "Your New High Score is " + score;
+    }
+
     //Play Again Button
     public void PlayAgain() 
     {
