@@ -13,8 +13,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
     public TMP_InputField highScoreInput;
-    
 
+    [SerializeField] string playAgain;
+    [SerializeField] string startMenu;
 
     //Gameover is start false
     public bool gameOver;
@@ -153,15 +154,15 @@ public class GameManager : MonoBehaviour
     //Play Again Button
     public void PlayAgain() 
     {
-        SceneManager.LoadScene("SampleScene");
-    
-    
+        // changed this to a SerializedField instead to avoid hard-coded code (david)
+        SceneManager.LoadScene(playAgain);
     }
+   
     //Quit Button
     public void Quit()
     {
-        Application.Quit();
-        Debug.Log("Game Quit");
+        // loads the start menu (David) 
+        SceneManager.LoadScene(startMenu);
     }
 
 }
