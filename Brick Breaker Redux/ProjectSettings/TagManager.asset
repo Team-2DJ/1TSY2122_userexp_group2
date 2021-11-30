@@ -7,6 +7,7 @@ TagManager:
   - Bottom
   - Brick
   - extraLife
+  - HealthBrick
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public int lives;
     public int score;
     public TextMeshProUGUI livesText;
+    public Image[] livesImage;
+
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
     public TMP_InputField highScoreInput;
@@ -34,26 +36,37 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // (original code)
         // Initializes number of lives
-        livesText.text = "Lives: " + lives;
+        //livesText.text = "Lives: " + lives;
+
+        // lives counter initialization (David) 
+        livesImage[0].enabled = true;
+        livesImage[1].enabled = false;
+        livesImage[2].enabled = false;
+        livesImage[3].enabled = false;
 
         // Initializes score
         scoreText.text = "Score: " + score;
 
+        // (original code)
         // Finds Gameobjects with the tag of brick and stores the total amount 
-        numberOfBricks = GameObject.FindGameObjectsWithTag("Brick").Length;
+        // numberOfBricks = GameObject.FindGameObjectsWithTag("Brick").Length;
+
+        // Finds GameObjects with the BrickScript Component and stores the total amount (David); 
+        numberOfBricks = GameObject.FindObjectsOfType<BrickScript>().Length; 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     // Updates the lives of the player
     public void updateLives(int changeInLives)
     {
         lives += changeInLives;
+        lives = Mathf.Clamp(lives, -1, 4);
 
         // Check for no lives left and trigger the end of the game
         if (lives <= 0)
@@ -61,7 +74,19 @@ public class GameManager : MonoBehaviour
             lives = 0;
             GameOver();
         }
-        livesText.text = "Lives: " + lives;
+        // (original code)
+        //livesText.text = "Lives: " + lives;
+
+        // Lives counter
+        livesImage[0].enabled = true; 
+        livesImage[1].enabled = false;
+        livesImage[2].enabled = false;
+        livesImage[3].enabled = false;
+
+        for (int i = 0; i < lives; i++)
+        {
+            livesImage[i].enabled = true;
+        }
     }
 
     // Updates the player's score
@@ -108,8 +133,13 @@ public class GameManager : MonoBehaviour
         currentLevelIndex++;
         //Instatnatiate the next level
         Instantiate(levels[currentLevelIndex], Vector2.zero, Quaternion.identity);
-        //Looks at the number of bricks
-        numberOfBricks = GameObject.FindGameObjectsWithTag("Brick").Length;
+        
+        // (original code)
+        // Looks at the number of bricks
+        // numberOfBricks = GameObject.FindGameObjectsWithTag("Brick").Length;
+
+        // Looks at the No. of bricks based on the BrickScript component (David) 
+        numberOfBricks = GameObject.FindObjectsOfType<BrickScript>().Length;
 
         //In the UpdateNumberofBricks() gameOver becomes true for a loading screen
         //This removes the loading screen

@@ -217,6 +217,22 @@ PrefabInstance:
       propertyPath: hitsToBreak
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.b
+      value: 0.25882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.g
+      value: 0.59607846
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
 --- !u!4 &6444101944161988942 stripped
@@ -302,6 +318,22 @@ PrefabInstance:
     - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
       propertyPath: hitsToBreak
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.b
+      value: 0.25882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.g
+      value: 0.59607846
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
@@ -561,6 +593,22 @@ PrefabInstance:
       propertyPath: hitsToBreak
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.b
+      value: 0.25882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.g
+      value: 0.59607846
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
 --- !u!4 &6444101943684470458 stripped
@@ -647,6 +695,22 @@ PrefabInstance:
       propertyPath: hitsToBreak
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.b
+      value: 0.25882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.g
+      value: 0.59607846
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
 --- !u!4 &6444101943758299795 stripped
@@ -732,6 +796,22 @@ PrefabInstance:
     - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
       propertyPath: hitsToBreak
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.b
+      value: 0.25882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.g
+      value: 0.59607846
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
@@ -904,6 +984,22 @@ PrefabInstance:
     - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
       propertyPath: hitsToBreak
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.b
+      value: 0.25882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.g
+      value: 0.59607846
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
@@ -1163,6 +1259,22 @@ PrefabInstance:
       propertyPath: hitsToBreak
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.b
+      value: 0.25882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.g
+      value: 0.59607846
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
 --- !u!4 &6444101943274651766 stripped
@@ -1248,6 +1360,22 @@ PrefabInstance:
     - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
       propertyPath: hitsToBreak
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.b
+      value: 0.25882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.g
+      value: 0.59607846
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
@@ -1420,6 +1548,22 @@ PrefabInstance:
     - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
       propertyPath: hitsToBreak
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.b
+      value: 0.25882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.g
+      value: 0.59607846
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
@@ -1851,6 +1995,22 @@ PrefabInstance:
       propertyPath: hitsToBreak
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.b
+      value: 0.25882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.g
+      value: 0.59607846
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
 --- !u!4 &6444101942815806663 stripped
@@ -1936,6 +2096,22 @@ PrefabInstance:
     - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
       propertyPath: hitsToBreak
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.b
+      value: 0.25882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.g
+      value: 0.59607846
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857788842500531918, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}
+      propertyPath: hitSpriteColor.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5c55ec59eea9f3458209a05288be2a2, type: 3}

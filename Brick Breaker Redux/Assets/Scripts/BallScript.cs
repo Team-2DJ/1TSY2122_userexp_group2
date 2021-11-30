@@ -10,8 +10,8 @@ public class BallScript : MonoBehaviour
     public float speed;
     public Transform explosion;
 
-    // temporarily only accepts one powerup (extra life), will be changed into an array come the time we will add more powerups (David)
-    public Transform powerup; 
+    // array of powerups (David)
+    public Transform[] powerup;
 
     public GameManager gm;
 
@@ -69,8 +69,8 @@ public class BallScript : MonoBehaviour
     // Added in a collider for when the ball hits the bricks (David) 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        // if ball collides with an object with tag "brick", destroys the brick 
-        if (other.transform.CompareTag("Brick"))
+        // if ball collides with an object with component BrickScript, destroy it
+        if (other.gameObject.GetComponent<BrickScript>())
         {
             BrickScript brick = other.gameObject.GetComponent<BrickScript>();
 
@@ -78,18 +78,7 @@ public class BallScript : MonoBehaviour
             if (brick.hitsToBreak > 1)
             {
                 brick.BreakBrick();
-                return; 
-            }
-
-            // random Number to check if powerup should be called
-            /* To Note: I might change this system if we're done with the video tutorial, might make it a brick thing wherein if 
-            this brick is broken, then drop powerup, but for now this system will do (David) */
-
-            int randomChance = Random.Range(1, 101);
-
-            if (randomChance < 50) // 50% chance of spawning
-            {
-                Instantiate(powerup, other.transform.position, other.transform.rotation);
+                return;
             }
 
             // creates the breaking (explosion) particle effect
@@ -101,6 +90,20 @@ public class BallScript : MonoBehaviour
 
             // Removes a brick from the level count
             gm.UpdateNumberofBricks();
+
+            // powerup logic, checks between brick tags 
+            switch (other.transform.tag)
+            {
+                case "HealthBrick": // if brick tag is health brick, instantiate health powerup[0]
+                    Instantiate(powerup[0], other.transform.position, other.transform.rotation);
+                    break;
+                case "BallBrick": // if brick tag is ball brick, instantiate extra ball powerup[1]
+                    Instantiate(powerup[1], other.transform.position, other.transform.rotation);
+                    break;
+                case "BlasterBrick": // if brick tag is blaster brick, instantiate blaster powerup[2]
+                    Instantiate(powerup[2], other.transform.position, other.transform.rotation);
+                    break;
+            }
 
             Destroy(other.gameObject);
         }
