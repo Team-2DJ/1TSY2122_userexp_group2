@@ -8,6 +8,10 @@ TagManager:
   - Brick
   - extraLife
   - HealthBrick
+  - BallBrick
+  - BlasterBrick
+  - extraBall
+  - extraBlaster
   layers:
   - Default
   - TransparentFX
@@ -15,8 +19,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Ball Layer
+  - Bullet Layer
   - 
   - 
   - 

@@ -10,21 +10,36 @@ public class PaddleMovement : MonoBehaviour
 
     //Gamemanger
     public GameManager gm;
-
+   
     //Screen Edges
     public float rightScreenEdge;
     public float leftScreenEdge;
 
+    public Sprite blasterSprite;
+    public Sprite normalPaddleSprite;
 
+    public bool blasterIsActive = false;
+
+    public GameObject leftNozzle;
+    public GameObject rightNozzle;
+
+    public GameObject bullet;
+    public GameObject bullet2;
+
+    public float fireRate = 5.0f;
+    public float nextFire = 0f;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        normalPaddleSprite = this.GetComponent<SpriteRenderer>().sprite;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+        FireBullets();
         //When gameOver is true
         if (gm.gameOver)
         {
@@ -68,11 +83,20 @@ public class PaddleMovement : MonoBehaviour
     // used for the powerup system (David) 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // if the object is an extra life
-        if (collision.CompareTag("extraLife"))
-        {
-            // if trigger entered, add life
-            gm.updateLives(1);
+        switch (collision.tag) 
+        { 
+            case "extraLife":
+                gm.updateLives(1);
+                break;
+            case "extraBall":
+
+                break;
+
+            case "extraBlaster":
+                //normalPaddleSprite = blasterSprite;
+                this.GetComponent<SpriteRenderer>().sprite = blasterSprite;
+                blasterIsActive = true;
+                break;
         }
 
         // destroys the powerup once collided on 
@@ -82,4 +106,20 @@ public class PaddleMovement : MonoBehaviour
         "gun" powerup, ball powerup, etc. That'll not be based from the video anymore rather, our own code (David) */
 
     }
+
+    void FireBullets()
+    {
+        if (blasterIsActive == true)
+        {
+            Debug.Log("Blaster Active");
+            if (Input.GetKeyUp(KeyCode.Space) && Time.time > nextFire)
+            {
+                nextFire = Time.time + fireRate;
+                GameObject leftShot = Instantiate(bullet, leftNozzle.transform.position, leftNozzle.transform.rotation);
+                GameObject rightShot = Instantiate(bullet2, rightNozzle.transform.position, rightNozzle.transform.rotation);
+            }
+        }
+    
+    }
+
 }
