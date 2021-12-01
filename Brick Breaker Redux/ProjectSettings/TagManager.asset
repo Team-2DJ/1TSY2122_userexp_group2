@@ -12,6 +12,7 @@ TagManager:
   - BlasterBrick
   - extraBall
   - extraBlaster
+  - Ball
   layers:
   - Default
   - TransparentFX

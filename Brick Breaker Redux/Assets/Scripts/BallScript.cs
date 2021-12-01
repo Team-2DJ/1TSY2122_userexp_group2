@@ -9,6 +9,7 @@ public class BallScript : MonoBehaviour
     public Transform paddle;
     public float speed;
     public Transform explosion;
+    public GameObject ballPrefab;
 
     // array of powerups (David)
     public Transform[] powerup;
@@ -25,27 +26,31 @@ public class BallScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //When gameover is true
+        // When gameover is true
         if(gm.gameOver)
         {
-            //When true it stops the update when it gameover so no more ball
+            // When true it stops the update when it gameover so no more ball
             return;
         }
+
         // If the ball is off-screen and not in play,
         // put the ball back to the paddle
-        if (!inPlay)
+        if (gameObject.tag != "ExtraBall")
         {
-            transform.position = paddle.position;
-        }
+            if (!inPlay)
+            {
+                transform.position = paddle.position;
+            }
 
-        // If Space Bar is pressed,
-        // start the ball's movement
-        if (Input.GetButtonDown("Jump") && !inPlay)
-        {
-            inPlay = true;
+            // If Space Bar is pressed,
+            // start the ball's movement
+            if (Input.GetButtonDown("Jump") && !inPlay)
+            {
+                inPlay = true;
 
-            // Adds upward force to the ball
-            rb.AddForce(Vector2.up * speed);
+                // Adds upward force to the ball
+                rb.AddForce(Vector2.up * speed);
+            }
         }
     }
 
@@ -55,14 +60,21 @@ public class BallScript : MonoBehaviour
         {
             Debug.Log("Ball hit the bottom of the screen");
 
-            // Sets the momentum of the ball to zero
-            rb.velocity = Vector2.zero;
+            if (gm.ballsPresent.Length <= 1)
+            {
+                // Sets the momentum of the ball to zero
+                rb.velocity = Vector2.zero;
 
-            // Puts the ball back to the paddle
-            inPlay = false;
+                // Puts the ball back to the paddle
+                inPlay = false;
 
-            // Decrease lives by 1
-            gm.updateLives(-1);
+                // Decrease lives by 1
+                gm.updateLives(-1);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -107,5 +119,30 @@ public class BallScript : MonoBehaviour
 
             Destroy(other.gameObject);
         }
+    }
+
+    public void spawnMultipleBalls()
+    {
+        int numNewBalls = 3;
+
+        for (int i = 0; i < numNewBalls; i++)
+        {
+            GameObject newBall = Instantiate(ballPrefab, transform.position, Quaternion.identity) as GameObject;
+            Rigidbody2D rbdy = newBall.GetComponent<Rigidbody2D>();
+            rbdy.AddForce((new Vector2(generateRandomNumber(), generateRandomNumber())) * speed);
+        }
+    }
+
+    // Generatea a random number except zero
+    public float generateRandomNumber()
+    {
+        float randomNumber;
+        
+        do
+        {
+            randomNumber = Random.Range(-2f, 2f);
+        } while (randomNumber == 0);
+        
+        return randomNumber;
     }
 }

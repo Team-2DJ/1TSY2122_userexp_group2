@@ -32,7 +32,13 @@ public class GameManager : MonoBehaviour
     public Transform[] levels;
     //Current Level
     public int currentLevelIndex;
-   
+
+    // Counts number of balls present
+    public GameObject[] ballsPresent;
+
+    // Checks whether multiple ball power-up is in duration
+    public bool isMultiple;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,12 +60,30 @@ public class GameManager : MonoBehaviour
         // numberOfBricks = GameObject.FindGameObjectsWithTag("Brick").Length;
 
         // Finds GameObjects with the BrickScript Component and stores the total amount (David); 
-        numberOfBricks = GameObject.FindObjectsOfType<BrickScript>().Length; 
+        numberOfBricks = GameObject.FindObjectsOfType<BrickScript>().Length;
+
+        currentLevelIndex = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Counts number of balls present
+        ballsPresent = GameObject.FindGameObjectsWithTag("Ball");
+
+        if (gameOver == false)
+        {
+            // Disables getting another multiple ball powerup when said
+            // powerup is still in duration
+            if (ballsPresent.Length > 1)
+            {
+                isMultiple = true;
+            }
+            else
+            {
+                isMultiple = false;
+            }
+        }
     }
 
     // Updates the lives of the player
@@ -104,18 +128,21 @@ public class GameManager : MonoBehaviour
         numberOfBricks--;
         
         //When the number of bricks is <=0
-        if(numberOfBricks <= 0)
+        if (numberOfBricks <= 0)
         {
             //When index is equal or greater than to the last level
             if (currentLevelIndex >= levels.Length - 1)
             {
                 //For now just does gameover but will make it a load next level
                 GameOver();
+                //LoadLevel();
+
             } else {
+                
                 //Makes loading level visible
                 loadLevelPanel.SetActive(true);
                 //Changes text name
-                loadLevelPanel.GetComponentInChildren<Text> ().text = "Level " + (currentLevelIndex + 2);
+                //loadLevelPanel.GetComponentInChildren<Text> ().text = "Level " + (currentLevelIndex + 2);
 
                 //Freezes or gives time, like a loading screen, so that it won't go to the next level instantly
                 gameOver = true;
@@ -131,12 +158,12 @@ public class GameManager : MonoBehaviour
     {
         //add to currentlevelindex
         currentLevelIndex++;
-        //Instatnatiate the next level
+        //Instantiate the next level
         Instantiate(levels[currentLevelIndex], Vector2.zero, Quaternion.identity);
-        
+
         // (original code)
         // Looks at the number of bricks
-        // numberOfBricks = GameObject.FindGameObjectsWithTag("Brick").Length;
+        //numberOfBricks = GameObject.FindGameObjectsWithTag("Brick").Length;
 
         // Looks at the No. of bricks based on the BrickScript component (David) 
         numberOfBricks = GameObject.FindObjectsOfType<BrickScript>().Length;
@@ -191,7 +218,7 @@ public class GameManager : MonoBehaviour
     //Quit Button
     public void Quit()
     {
-        // loads the start menu (David) 
+        // loads the start menu (David)
         SceneManager.LoadScene(startMenu);
     }
 

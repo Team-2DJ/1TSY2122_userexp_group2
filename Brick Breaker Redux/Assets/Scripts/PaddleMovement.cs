@@ -28,12 +28,13 @@ public class PaddleMovement : MonoBehaviour
 
     public float fireRate = 5.0f;
     public float nextFire = 0f;
-    
+
+    public BallScript ball;
+
     // Start is called before the first frame update
     void Start()
     {
         normalPaddleSprite = this.GetComponent<SpriteRenderer>().sprite;
-       
     }
 
     // Update is called once per frame
@@ -46,7 +47,6 @@ public class PaddleMovement : MonoBehaviour
             //When true it stops the update when it gameover so now there no paddle movement
             return;
         }
-
 
         //Paddle Movement
 
@@ -79,7 +79,6 @@ public class PaddleMovement : MonoBehaviour
 
     }
 
-
     // used for the powerup system (David) 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -89,7 +88,10 @@ public class PaddleMovement : MonoBehaviour
                 gm.updateLives(1);
                 break;
             case "extraBall":
-
+                if (gm.isMultiple == false)
+                {
+                    ball.spawnMultipleBalls();
+                }
                 break;
 
             case "extraBlaster":
@@ -121,5 +123,4 @@ public class PaddleMovement : MonoBehaviour
         }
     
     }
-
 }
