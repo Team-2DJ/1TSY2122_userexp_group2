@@ -105,6 +105,11 @@ public class GameManager : MonoBehaviour
         lives += changeInLives;
         lives = Mathf.Clamp(lives, -1, 4);
 
+        if (ball == null)
+        {
+            ball = FindObjectOfType<BallScript>();
+        }
+
         // Check for no lives left and trigger the end of the game
         if (lives <= 0)
         {
@@ -159,6 +164,7 @@ public class GameManager : MonoBehaviour
 
                 //Freezes or gives time, like a loading screen, so that it won't go to the next level instantly
                 gameOver = true;
+
                 //Invoke the function loadLevel and plays it after a set amount of time 
                 Invoke("LoadLevel", 0.5f);
             }

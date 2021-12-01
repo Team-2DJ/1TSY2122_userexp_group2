@@ -37,12 +37,24 @@ public class BallScript : MonoBehaviour
         if (gm.gameOver)
         {
             // When true it stops the update when it gameover so no more ball
+            inPlay = false;
+            rb.velocity = Vector2.zero;
+            this.GetComponent<SpriteRenderer>().sprite = ballSprite[2];
             return;
         }
 
-        if (gm.gameOver == true)
+        // Animates the ball based on current velocity
+        if (rb.velocity.x > 0 && inPlay == true)
         {
-            inPlay = false;
+            this.GetComponent<SpriteRenderer>().sprite = ballSprite[1];
+        }
+        else if (rb.velocity.x < 0 && inPlay == true)
+        {
+            this.GetComponent<SpriteRenderer>().sprite = ballSprite[0];
+        }
+        else if (rb.velocity.x == 0 && rb.velocity.y > 0 && inPlay == true)
+        {
+            this.GetComponent<SpriteRenderer>().sprite = ballSprite[4];
         }
 
         // If the ball is off-screen and not in play,
@@ -61,7 +73,7 @@ public class BallScript : MonoBehaviour
                 inPlay = true;
 
                 // Adds upward force to the ball
-                rb.AddForce(Vector2.up * speed);
+                rb.AddForce(Vector2.up.normalized * speed);
             }
         }
     }
@@ -147,7 +159,7 @@ public class BallScript : MonoBehaviour
             GameObject newBall = Instantiate(ballPrefab, transform.position, Quaternion.identity) as GameObject;
             Rigidbody2D rbdy = newBall.GetComponent<Rigidbody2D>();
 
-            rbdy.AddForce((new Vector2(generateRandomNumber(), generateRandomNumber())) * speed);
+            rbdy.AddForce((new Vector2(generateRandomNumber(), generateRandomNumber())).normalized * speed);
         }
     }
 

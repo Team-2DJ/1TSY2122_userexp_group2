@@ -42,11 +42,11 @@ public class PaddleMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ball == null)
+        if (ball == null)
         {
             ball = FindObjectOfType<BallScript>();
-
         }
+
         FireBullets();
         //When gameOver is true
         if (gm.gameOver)
@@ -136,6 +136,5 @@ public class PaddleMovement : MonoBehaviour
             this.GetComponent<SpriteRenderer>().sprite = normalPaddleSprite;
 
         }
-    
     }
 }
