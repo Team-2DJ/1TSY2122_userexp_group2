@@ -31,6 +31,8 @@ public class PaddleMovement : MonoBehaviour
 
     public BallScript ball;
 
+    public AudioSource pickupPowerupSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +42,11 @@ public class PaddleMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(ball == null)
+        {
+            ball = FindObjectOfType<BallScript>();
+
+        }
         FireBullets();
         //When gameOver is true
         if (gm.gameOver)
@@ -86,18 +93,22 @@ public class PaddleMovement : MonoBehaviour
         { 
             case "extraLife":
                 gm.updateLives(1);
+                pickupPowerupSound.Play();
+
                 break;
             case "extraBall":
                 if (gm.isMultiple == false)
                 {
                     ball.spawnMultipleBalls();
                 }
+                pickupPowerupSound.Play();
                 break;
 
             case "extraBlaster":
                 //normalPaddleSprite = blasterSprite;
                 this.GetComponent<SpriteRenderer>().sprite = blasterSprite;
                 blasterIsActive = true;
+                pickupPowerupSound.Play();
                 break;
         }
 
@@ -120,6 +131,10 @@ public class PaddleMovement : MonoBehaviour
                 GameObject leftShot = Instantiate(bullet, leftNozzle.transform.position, leftNozzle.transform.rotation);
                 GameObject rightShot = Instantiate(bullet2, rightNozzle.transform.position, rightNozzle.transform.rotation);
             }
+        } else
+        {
+            this.GetComponent<SpriteRenderer>().sprite = normalPaddleSprite;
+
         }
     
     }

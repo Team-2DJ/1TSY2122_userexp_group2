@@ -41,6 +41,12 @@ public class GameManager : MonoBehaviour
 
     public BallScript ball;
 
+    public PaddleMovement paddleInfo;
+
+    private void Awake()
+    {
+        paddleInfo = FindObjectOfType<PaddleMovement>(); 
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -183,6 +189,8 @@ public class GameManager : MonoBehaviour
         //Makes loading level invisible
         loadLevelPanel.SetActive(false);
 
+        TurnOffBlaster();
+
     }
 
     void GameOver()
@@ -229,6 +237,11 @@ public class GameManager : MonoBehaviour
     {
         // loads the start menu (David)
         SceneManager.LoadScene(startMenu);
+    }
+
+    public void TurnOffBlaster()
+    {
+        paddleInfo.blasterIsActive = false;
     }
 
 }

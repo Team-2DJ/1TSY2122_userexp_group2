@@ -17,12 +17,17 @@ public class BallScript : MonoBehaviour
 
     public GameManager gm;
 
+    //DestroyBrick Sound
+    public AudioSource destroyedSound;
+
     // Start is called before the first frame update
     void Start()
     {
         // Gets the Rigidbody component
         rb = GetComponent<Rigidbody2D>();
         this.GetComponent<SpriteRenderer>().sprite = ballSprite[2];
+        // Upon spawning get audio source from ball
+        destroyedSound = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -78,6 +83,8 @@ public class BallScript : MonoBehaviour
 
                 // Decrease lives by 1
                 gm.updateLives(-1);
+
+                gm.TurnOffBlaster();
             }
             else
             {
@@ -97,6 +104,7 @@ public class BallScript : MonoBehaviour
             // brick health, if brick health <= 0 then don't run this if statement
             if (brick.hitsToBreak > 1)
             {
+                destroyedSound.Play();
                 brick.BreakBrick();
                 return;
             }
@@ -124,7 +132,7 @@ public class BallScript : MonoBehaviour
                     Instantiate(powerup[2], other.transform.position, other.transform.rotation);
                     break;
             }
-
+            destroyedSound.Play();
             Destroy(other.gameObject);
         }
     }
