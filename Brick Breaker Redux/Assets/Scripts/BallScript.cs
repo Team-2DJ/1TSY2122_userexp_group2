@@ -10,6 +10,7 @@ public class BallScript : MonoBehaviour
     public float speed;
     public Transform explosion;
     public GameObject ballPrefab;
+    public Sprite[] ballSprite;
 
     // array of powerups (David)
     public Transform[] powerup;
@@ -21,16 +22,22 @@ public class BallScript : MonoBehaviour
     {
         // Gets the Rigidbody component
         rb = GetComponent<Rigidbody2D>();
+        this.GetComponent<SpriteRenderer>().sprite = ballSprite[2];
     }
 
     // Update is called once per frame
     void Update()
     {
         // When gameover is true
-        if(gm.gameOver)
+        if (gm.gameOver)
         {
             // When true it stops the update when it gameover so no more ball
             return;
+        }
+
+        if (gm.gameOver == true)
+        {
+            inPlay = false;
         }
 
         // If the ball is off-screen and not in play,
@@ -67,6 +74,7 @@ public class BallScript : MonoBehaviour
 
                 // Puts the ball back to the paddle
                 inPlay = false;
+                this.GetComponent<SpriteRenderer>().sprite = ballSprite[2];
 
                 // Decrease lives by 1
                 gm.updateLives(-1);
@@ -121,6 +129,7 @@ public class BallScript : MonoBehaviour
         }
     }
 
+    // Spawns Multiple Balls
     public void spawnMultipleBalls()
     {
         int numNewBalls = 3;
@@ -129,6 +138,7 @@ public class BallScript : MonoBehaviour
         {
             GameObject newBall = Instantiate(ballPrefab, transform.position, Quaternion.identity) as GameObject;
             Rigidbody2D rbdy = newBall.GetComponent<Rigidbody2D>();
+
             rbdy.AddForce((new Vector2(generateRandomNumber(), generateRandomNumber())) * speed);
         }
     }

@@ -1337,14 +1337,16 @@ MonoBehaviour:
   gameOver: 0
   gameOverPanel: {fileID: 1943141978}
   loadLevelPanel: {fileID: 1686279306}
-  numberOfBricks: 0
+  numberOfBricks: 2
   levels:
   - {fileID: 1900342343}
   - {fileID: 8796333306692201494, guid: 2ec9c833b7320bc40b92edd3fdcd533b, type: 3}
   - {fileID: 5614042694612553731, guid: 5f8adbc4e2c5fcb4c85f5a3b92b6a5f0, type: 3}
+  - {fileID: 1762308439781277197, guid: adc85655c434bf841bff70750169fc95, type: 3}
   currentLevelIndex: 0
   ballsPresent: []
   isMultiple: 0
+  ball: {fileID: 2849289622216284731, guid: 835421c947800434c9e5b250f97fef9b, type: 3}
 --- !u!1 &417700085
 GameObject:
   m_ObjectHideFlags: 0
@@ -3773,6 +3775,30 @@ PrefabInstance:
       propertyPath: paddle
       value: 
       objectReference: {fileID: 101095962}
+    - target: {fileID: 2849289622216284731, guid: 835421c947800434c9e5b250f97fef9b, type: 3}
+      propertyPath: ballSprite.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849289622216284731, guid: 835421c947800434c9e5b250f97fef9b, type: 3}
+      propertyPath: ballSprite.Array.data[0]
+      value: 
+      objectReference: {fileID: 3361648951237461654, guid: 3479a2ca35de3f14d87b8d2764aaa98f, type: 3}
+    - target: {fileID: 2849289622216284731, guid: 835421c947800434c9e5b250f97fef9b, type: 3}
+      propertyPath: ballSprite.Array.data[1]
+      value: 
+      objectReference: {fileID: 265473122627297251, guid: 3479a2ca35de3f14d87b8d2764aaa98f, type: 3}
+    - target: {fileID: 2849289622216284731, guid: 835421c947800434c9e5b250f97fef9b, type: 3}
+      propertyPath: ballSprite.Array.data[2]
+      value: 
+      objectReference: {fileID: -3238996802010811412, guid: 3479a2ca35de3f14d87b8d2764aaa98f, type: 3}
+    - target: {fileID: 2849289622216284731, guid: 835421c947800434c9e5b250f97fef9b, type: 3}
+      propertyPath: ballSprite.Array.data[3]
+      value: 
+      objectReference: {fileID: 6261670610377474285, guid: 3479a2ca35de3f14d87b8d2764aaa98f, type: 3}
+    - target: {fileID: 2849289622216284731, guid: 835421c947800434c9e5b250f97fef9b, type: 3}
+      propertyPath: ballSprite.Array.data[4]
+      value: 
+      objectReference: {fileID: -7158028124410807920, guid: 3479a2ca35de3f14d87b8d2764aaa98f, type: 3}
     - target: {fileID: 2849289622216284732, guid: 835421c947800434c9e5b250f97fef9b, type: 3}
       propertyPath: m_Name
       value: Ball

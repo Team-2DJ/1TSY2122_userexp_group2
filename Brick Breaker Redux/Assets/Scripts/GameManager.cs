@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
     // Checks whether multiple ball power-up is in duration
     public bool isMultiple;
 
+    public BallScript ball;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -175,6 +177,9 @@ public class GameManager : MonoBehaviour
         //In the UpdateNumberofBricks() gameOver becomes true for a loading screen
         //This removes the loading screen
         gameOver = false;
+
+        ball.inPlay = false;
+
         //Makes loading level invisible
         loadLevelPanel.SetActive(false);
 
