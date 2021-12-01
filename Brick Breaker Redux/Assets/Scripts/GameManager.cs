@@ -51,6 +51,11 @@ public class GameManager : MonoBehaviour
         livesImage[1].enabled = false;
         livesImage[2].enabled = false;
         livesImage[3].enabled = false;
+        
+        for (int i = 0; i < lives; i++)
+        {
+            livesImage[i].enabled = true; 
+        }
 
         // Initializes score
         scoreText.text = "Score: " + score;
@@ -147,10 +152,8 @@ public class GameManager : MonoBehaviour
                 //Freezes or gives time, like a loading screen, so that it won't go to the next level instantly
                 gameOver = true;
                 //Invoke the function loadLevel and plays it after a set amount of time 
-                Invoke("LoadLevel", 3f);
+                Invoke("LoadLevel", 0.5f);
             }
-            
-
         }
     }
 
@@ -160,6 +163,7 @@ public class GameManager : MonoBehaviour
         currentLevelIndex++;
         //Instantiate the next level
         Instantiate(levels[currentLevelIndex], Vector2.zero, Quaternion.identity);
+        //Instantiate(levels[currentLevelIndex]);
 
         // (original code)
         // Looks at the number of bricks

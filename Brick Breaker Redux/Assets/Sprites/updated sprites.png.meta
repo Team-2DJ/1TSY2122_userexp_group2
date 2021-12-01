@@ -28,10 +28,10 @@ TextureImporter:
     second: paddle_blaster
   - first:
       213: -5827735867110837667
-    second: icecream
+    second: popsicle
   - first:
       213: -3769219035422146042
-    second: icecream_powerup
+    second: popsicle_powerup
   - first:
       213: 7991531840764521995
     second: chocolate
@@ -40,10 +40,10 @@ TextureImporter:
     second: chocolate_powerup
   - first:
       213: 31707964620605648
-    second: sashimi
+    second: sushi
   - first:
       213: -1133330331180524248
-    second: sahimi_powerup
+    second: sushi_powerup
   - first:
       213: -7122573215130421322
     second: bacon
@@ -316,7 +316,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icecream
+      name: popsicle
       rect:
         serializedVersion: 2
         x: 3
@@ -337,7 +337,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icecream_powerup
+      name: popsicle_powerup
       rect:
         serializedVersion: 2
         x: 66
@@ -400,7 +400,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sashimi
+      name: sushi
       rect:
         serializedVersion: 2
         x: 3
@@ -421,7 +421,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sahimi_powerup
+      name: sushi_powerup
       rect:
         serializedVersion: 2
         x: 66
