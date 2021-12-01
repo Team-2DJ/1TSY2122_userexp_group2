@@ -1021,7 +1021,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 349610842}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: NewHighScore
         m_Mode: 1
