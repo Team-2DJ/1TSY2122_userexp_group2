@@ -76,6 +76,8 @@ public class GameManager : MonoBehaviour
         numberOfBricks = GameObject.FindObjectsOfType<BrickScript>().Length;
 
         currentLevelIndex = 0;
+
+        InvokeRepeating("UpdateNumberofBricks", 0f, 1f);
     }
 
     // Update is called once per frame
@@ -83,6 +85,8 @@ public class GameManager : MonoBehaviour
     {
         // Counts number of balls present
         ballsPresent = GameObject.FindGameObjectsWithTag("Ball");
+
+        numberOfBricks = FindObjectsOfType<BrickScript>().Length;
 
         if (gameOver == false)
         {
@@ -143,7 +147,7 @@ public class GameManager : MonoBehaviour
     public void UpdateNumberofBricks()
     {
         //Removes one from the numberOfbrick
-        numberOfBricks--;
+        //numberOfBricks--;
         
         //When the number of bricks is <=0
         if (numberOfBricks <= 0)

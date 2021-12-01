@@ -1339,7 +1339,7 @@ MonoBehaviour:
   gameOver: 0
   gameOverPanel: {fileID: 1943141978}
   loadLevelPanel: {fileID: 1686279306}
-  numberOfBricks: 2
+  numberOfBricks: 0
   levels:
   - {fileID: 1900342343}
   - {fileID: 8796333306692201494, guid: 2ec9c833b7320bc40b92edd3fdcd533b, type: 3}
