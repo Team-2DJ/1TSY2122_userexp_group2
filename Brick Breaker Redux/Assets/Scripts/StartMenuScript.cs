@@ -30,4 +30,9 @@ public class StartMenuScript : MonoBehaviour
         Application.Quit();
         Debug.Log("Game Quit");
     }
+
+    public void ResetPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }
